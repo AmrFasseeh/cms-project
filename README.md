@@ -29,7 +29,7 @@ Delete a single entity: `POST /api/admin/entity/delete` \
 Create a custom attribute and assign it to an entity:  
 `POST /api/admin/entity/{entityId}/assignAttribute` \
 \
-Assign an entity to another entity: `POST /api/admin/entity/assignEntity` \
+Assign an entity to another entity: `POST /api/admin/entity/assignEntity`
 
 
 
