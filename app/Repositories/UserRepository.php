@@ -11,7 +11,7 @@ class UserRepository
     {
         return User::where('role', $role)
             ->paginate(
-                perPage: $config['perPage'] ?? 12,
+                perPage: $config['perPage'] ?? 1000,
                 page: $config['page'] ?? 1
             );
     }
