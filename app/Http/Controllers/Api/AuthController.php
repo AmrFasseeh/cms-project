@@ -20,32 +20,6 @@ class AuthController extends Controller
     }
 
     /**
-     * Create User
-     * @param CreateUserRequest $request
-     * @return JsonResponse
-     */
-    public function register(CreateUserRequest $request): JsonResponse
-    {
-        try {
-            $validatedUser = $request->validated();
-
-            $user = $this->userRepository->createUser($validatedUser);
-
-            return response()->json([
-                'status' => true,
-                'message' => 'User Created Successfully',
-                'token' => $user->createToken("API TOKEN")->plainTextToken
-            ]);
-
-        } catch (\Exception $ex) {
-            return response()->json([
-                'status' => false,
-                'message' => $ex->getMessage()
-            ], 500);
-        }
-    }
-
-    /**
      * Login The User
      * @param LoginRequest $request
      * @return JsonResponse
@@ -106,4 +80,30 @@ class AuthController extends Controller
             ], 500);
         }
     }
+
+    /**
+     * Create User
+     * @param CreateUserRequest $request
+     * @return JsonResponse
+     */
+//    public function register(CreateUserRequest $request): JsonResponse
+//    {
+//        try {
+//            $validatedUser = $request->validated();
+//
+//            $user = $this->userRepository->createUser($validatedUser);
+//
+//            return response()->json([
+//                'status' => true,
+//                'message' => 'User Created Successfully',
+//                'token' => $user->createToken("API TOKEN")->plainTextToken
+//            ]);
+//
+//        } catch (\Exception $ex) {
+//            return response()->json([
+//                'status' => false,
+//                'message' => $ex->getMessage()
+//            ], 500);
+//        }
+//    }
 }
