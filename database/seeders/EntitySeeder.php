@@ -20,7 +20,7 @@ class EntitySeeder extends Seeder
                 Entity::factory()->create([
                     'name' => 'Harry Potter Book',
                     'description' => 'A book attached to students',
-                    'type' => EntityType::BOOK
+                    'type' => EntityType::BOOK,
                 ])
             )
             ->count(20)

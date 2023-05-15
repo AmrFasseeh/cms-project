@@ -19,20 +19,20 @@ class OperatorController extends Controller
         try {
             $inputs = $request->validate([
                 'per_page' => 'int',
-                'page' => 'int'
+                'page' => 'int',
             ]);
 
             $data = $this->userRepository->getAllUsers('operator', $inputs);
 
             return response()->json([
                 'status' => true,
-                'data' => $data
+                'data' => $data,
             ]);
 
         } catch (\Exception $ex) {
             return response()->json([
                 'status' => false,
-                'message' => $ex->getMessage()
+                'message' => $ex->getMessage(),
             ], 500);
         }
     }
@@ -44,13 +44,13 @@ class OperatorController extends Controller
 
             return response()->json([
                 'status' => true,
-                'data' => $data
+                'data' => $data,
             ]);
 
         } catch (\Exception $ex) {
             return response()->json([
                 'status' => false,
-                'message' => $ex->getMessage()
+                'message' => $ex->getMessage(),
             ], 500);
         }
     }
@@ -64,13 +64,13 @@ class OperatorController extends Controller
             return response()->json([
                 'status' => true,
                 'message' => 'Operator created successfully',
-                'data' => $operator
+                'data' => $operator,
             ]);
 
         } catch (\Exception $ex) {
             return response()->json([
                 'status' => false,
-                'message' => $ex->getMessage()
+                'message' => $ex->getMessage(),
             ], 500);
         }
     }
@@ -83,13 +83,13 @@ class OperatorController extends Controller
             return response()->json([
                 'status' => true,
                 'message' => 'Operator updated successfully',
-                'data' => $operator
+                'data' => $operator,
             ]);
 
         } catch (\Exception $ex) {
             return response()->json([
                 'status' => false,
-                'message' => $ex->getMessage()
+                'message' => $ex->getMessage(),
             ], 500);
         }
     }
@@ -103,13 +103,13 @@ class OperatorController extends Controller
 
             return response()->json([
                 'status' => true,
-                'message' => 'Operator deleted successfully'
+                'message' => 'Operator deleted successfully',
             ]);
 
         } catch (\Exception $ex) {
             return response()->json([
                 'status' => false,
-                'message' => $ex->getMessage()
+                'message' => $ex->getMessage(),
             ], 500);
         }
     }

@@ -15,14 +15,11 @@ class AuthController extends Controller
     public function __construct(
         private UserRepository $userRepository,
         private AuthRepository $authRepository
-    )
-    {
+    ) {
     }
 
     /**
      * Login The User
-     * @param LoginRequest $request
-     * @return JsonResponse
      */
     public function login(LoginRequest $request): JsonResponse
     {
@@ -31,7 +28,7 @@ class AuthController extends Controller
 
             $attemptLogin = $this->authRepository->loginUser($validateUser);
 
-            if(!$attemptLogin){
+            if (! $attemptLogin) {
                 return response()->json([
                     'status' => false,
                     'message' => 'Username & Password does not match with our record.',
@@ -43,13 +40,13 @@ class AuthController extends Controller
             return response()->json([
                 'status' => true,
                 'message' => 'User Logged In Successfully',
-                'token' => $user->createToken("API TOKEN")->plainTextToken
+                'token' => $user->createToken('API TOKEN')->plainTextToken,
             ]);
 
         } catch (\Exception $ex) {
             return response()->json([
                 'status' => false,
-                'message' => $ex->getMessage()
+                'message' => $ex->getMessage(),
             ], 500);
         }
     }
@@ -64,26 +61,27 @@ class AuthController extends Controller
 
                 return response()->json([
                     'status' => true,
-                    'message' => 'Logged out'
+                    'message' => 'Logged out',
                 ]);
             }
 
             return response()->json([
                 'status' => false,
-                'error' => 'Unauthorized'
+                'error' => 'Unauthorized',
             ], 401);
 
         } catch (\Exception $ex) {
             return response()->json([
                 'status' => false,
-                'message' => $ex->getMessage()
+                'message' => $ex->getMessage(),
             ], 500);
         }
     }
 
     /**
      * Create User
-     * @param CreateUserRequest $request
+     *
+     * @param  CreateUserRequest  $request
      * @return JsonResponse
      */
 //    public function register(CreateUserRequest $request): JsonResponse

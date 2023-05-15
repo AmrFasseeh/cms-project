@@ -40,7 +40,7 @@ class UserRepository
             'username' => $inputs['username'],
             'phone' => $inputs['phone'],
             'email' => $inputs['email'],
-            'password' => Hash::make($inputs['password'])
+            'password' => Hash::make($inputs['password']),
         ]);
     }
 
@@ -50,7 +50,7 @@ class UserRepository
 
         $currentPassword = $user->getAuthPassword();
 
-        if (isset($inputs['password']) && !Hash::check($inputs['password'], $currentPassword)) {
+        if (isset($inputs['password']) && ! Hash::check($inputs['password'], $currentPassword)) {
             $currentPassword = Hash::make($inputs['password']);
         }
 

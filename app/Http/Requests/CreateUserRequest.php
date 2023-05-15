@@ -29,14 +29,13 @@ class CreateUserRequest extends FormRequest
             'username' => 'required|unique:users,username',
             'phone' => 'required|unique:users,phone',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required'
+            'password' => 'required',
         ];
     }
 
     /**
      * Handle a failed validation attempt.
      *
-     * @param  \Illuminate\Contracts\Validation\Validator  $validator
      * @return void
      *
      * @throws \Illuminate\Validation\ValidationException
@@ -46,7 +45,7 @@ class CreateUserRequest extends FormRequest
         $response = new Response([
             'status' => false,
             'message' => 'validation error',
-            'errors' => $validator->errors()
+            'errors' => $validator->errors(),
         ], 422);
 
         throw new ValidationException($validator, $response);

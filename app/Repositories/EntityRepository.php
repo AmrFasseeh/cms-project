@@ -14,6 +14,7 @@ class EntityRepository
             page: $pageNo
         );
     }
+
     public function getEntityById($id)
     {
         return Entity::with('customAttributes', 'entities')->find($id);
@@ -29,7 +30,7 @@ class EntityRepository
         return Entity::create([
             'name' => $inputs['name'],
             'description' => $inputs['description'],
-            'type' => EntityType::from($inputs['type'])
+            'type' => EntityType::from($inputs['type']),
         ]);
     }
 
@@ -38,10 +39,11 @@ class EntityRepository
         $entity = $this->getEntityById($inputs['id']);
 
         $entity->update([
-                'name' => $inputs['name'] ?? $entity->name,
-                'description' => $inputs['description'] ?? $entity->description,
-                'type' => EntityType::from($inputs['type'] ?? $entity->type)
-            ]);
+            'name' => $inputs['name'] ?? $entity->name,
+            'description' => $inputs['description'] ?? $entity->description,
+            'type' => EntityType::from($inputs['type'] ?? $entity->type),
+        ]);
+
         return $entity;
     }
 
@@ -55,6 +57,7 @@ class EntityRepository
         $entity = $this->getEntityById($entityId);
         $entity->assignCustomAttribute($inputs);
         $entity->refresh();
+
         return $entity;
     }
 

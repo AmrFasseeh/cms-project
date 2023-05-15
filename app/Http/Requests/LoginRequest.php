@@ -45,8 +45,8 @@ class LoginRequest extends FormRequest
     }
 
     /**
-     * @param Validator $validator
      * @return mixed
+     *
      * @throws ValidationException
      */
     protected function failedValidation(Validator $validator)
@@ -54,7 +54,7 @@ class LoginRequest extends FormRequest
         $response = new Response([
             'status' => false,
             'message' => 'validation error',
-            'errors' => $validator->errors()
+            'errors' => $validator->errors(),
         ], 422);
 
         throw new ValidationException($validator, $response);

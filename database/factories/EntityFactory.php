@@ -20,7 +20,7 @@ class EntityFactory extends Factory
         return [
             'name' => fake()->name,
             'description' => fake()->paragraph,
-            'type' => EntityType::STUDENT
+            'type' => EntityType::STUDENT,
         ];
     }
 }

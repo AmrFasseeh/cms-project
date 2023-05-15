@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Entity extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'name',
         'description',
-        'type'
+        'type',
     ];
 
     public function customAttributes()

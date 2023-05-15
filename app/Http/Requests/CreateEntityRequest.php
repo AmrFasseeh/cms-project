@@ -27,14 +27,13 @@ class CreateEntityRequest extends FormRequest
         return [
             'name' => 'required|string',
             'description' => 'string',
-            'type' => 'required|int'
+            'type' => 'required|int',
         ];
     }
 
     /**
      * Handle a failed validation attempt.
      *
-     * @param  \Illuminate\Contracts\Validation\Validator  $validator
      * @return void
      *
      * @throws \Illuminate\Validation\ValidationException
@@ -44,7 +43,7 @@ class CreateEntityRequest extends FormRequest
         $response = new Response([
             'status' => false,
             'message' => 'validation error',
-            'errors' => $validator->errors()
+            'errors' => $validator->errors(),
         ], 422);
 
         throw new ValidationException($validator, $response);

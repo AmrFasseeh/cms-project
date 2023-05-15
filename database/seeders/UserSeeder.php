@@ -21,11 +21,11 @@ class UserSeeder extends Seeder
             'username' => 'admin',
             'phone' => '123456789',
             'email' => 'admin@cms.loc',
-            'password' => 'password'
+            'password' => 'password',
         ];
 
         $admin = $this->userRepository->getUserByUsername('admin');
-        if (!$admin) {
+        if (! $admin) {
             $admin = $this->userRepository->createUser($adminInputs);
         }
         $admin->assignRole('admin');
@@ -35,11 +35,11 @@ class UserSeeder extends Seeder
             'username' => 'operator',
             'phone' => '123456999',
             'email' => 'operator@cms.loc',
-            'password' => 'password'
+            'password' => 'password',
         ];
 
         $operator = $this->userRepository->getUserByUsername('operator');
-        if (!$operator) {
+        if (! $operator) {
             $operator = $this->userRepository->createUser($operatorInputs);
         }
         $operator->assignRole('operator');

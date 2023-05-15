@@ -24,8 +24,8 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-//    public function roles()
-//    {
-//        return $this->belongsToMany(Role::class, UserHasRole::class, 'user_id', 'role_id');
-//    }
+    //    public function roles()
+    //    {
+    //        return $this->belongsToMany(Role::class, UserHasRole::class, 'user_id', 'role_id');
+    //    }
 }

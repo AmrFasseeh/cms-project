@@ -17,7 +17,7 @@ class EntityController
         try {
             $inputs = $request->validate([
                 'per_page' => 'int',
-                'page' => 'int'
+                'page' => 'int',
             ]);
 
             $data = $this->entityRepository->getAllEntities(
@@ -27,13 +27,13 @@ class EntityController
 
             return response()->json([
                 'status' => true,
-                'data' => $data
+                'data' => $data,
             ]);
 
         } catch (\Exception $ex) {
             return response()->json([
                 'status' => false,
-                'message' => $ex->getMessage()
+                'message' => $ex->getMessage(),
             ], 500);
         }
     }
@@ -45,13 +45,13 @@ class EntityController
 
             return response()->json([
                 'status' => true,
-                'data' => $data
+                'data' => $data,
             ]);
 
         } catch (\Exception $ex) {
             return response()->json([
                 'status' => false,
-                'message' => $ex->getMessage()
+                'message' => $ex->getMessage(),
             ], 500);
         }
     }
@@ -64,13 +64,13 @@ class EntityController
 
             return response()->json([
                 'status' => true,
-                'message' => 'Custom attribute created and assigned to entity'
+                'message' => 'Custom attribute created and assigned to entity',
             ]);
 
         } catch (\Exception $ex) {
             return response()->json([
                 'status' => false,
-                'message' => $ex->getMessage()
+                'message' => $ex->getMessage(),
             ], 500);
         }
     }

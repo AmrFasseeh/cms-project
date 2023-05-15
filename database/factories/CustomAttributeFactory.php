@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\CustomAttribute;
 use App\Models\Entity;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -24,7 +23,7 @@ class CustomAttributeFactory extends Factory
             'customizable_id' => Entity::factory(),
             'customizable_type' => function (array $attributes) {
                 return Entity::find($attributes['customizable_id'])->type;
-            }
+            },
         ];
     }
 }

@@ -11,7 +11,7 @@ class CustomAttribute extends Model
 
     protected $fillable = [
         'type',
-        'value'
+        'value',
     ];
 
     public function entities()

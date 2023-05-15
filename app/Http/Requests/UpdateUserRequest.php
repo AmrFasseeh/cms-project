@@ -25,14 +25,13 @@ class UpdateUserRequest extends FormRequest
             'username' => "unique:users,username,{$this->get('id')}",
             'phone' => "unique:users,phone,{$this->get('id')}",
             'email' => "email|unique:users,username,{$this->get('id')}",
-            'password' => "sometimes|string",
+            'password' => 'sometimes|string',
         ];
     }
 
     /**
      * Handle a failed validation attempt.
      *
-     * @param  \Illuminate\Contracts\Validation\Validator  $validator
      * @return void
      *
      * @throws \Illuminate\Validation\ValidationException
@@ -42,7 +41,7 @@ class UpdateUserRequest extends FormRequest
         $response = new Response([
             'status' => false,
             'message' => 'validation error',
-            'errors' => $validator->errors()
+            'errors' => $validator->errors(),
         ], 422);
 
         throw new ValidationException($validator, $response);
